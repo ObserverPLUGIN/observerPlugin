@@ -1,0 +1,21 @@
+# Gradle
+.gradle/
+.gradle-tmp/
+build/
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local archives and binaries
+*.zip
+*.log
+
+# Java
+hs_err_pid*
+replay_pid*

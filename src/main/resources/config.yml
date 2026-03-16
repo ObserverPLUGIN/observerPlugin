@@ -1,0 +1,23 @@
+tracking:
+  interval-ms: 1000
+
+nearby-block:
+  enabled: true
+  radius: 5
+  interval-ms: 1000
+  blocks:
+    - CHEST
+    - DIAMOND_BLOCK
+  trigger:
+    message: "&eNearby target block detected: &f%block% &7at %world% %x% %y% %z%"
+    commands:
+      - "say %player% found %block% at %world% %x% %y% %z%"
+
+logs:
+  memory-limit: 5000
+  query-max-results: 50
+
+web:
+  enabled: false
+  endpoint: "http://localhost:8080/logs"
+  timeout-ms: 2000

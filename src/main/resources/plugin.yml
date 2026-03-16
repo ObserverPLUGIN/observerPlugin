@@ -1,0 +1,32 @@
+name: ObserverPlugin
+version: ${version}
+main: com.yangtheory.observer.ObserverPlugin
+api-version: '1.21'
+author: yangtheory
+description: Observer plugin with tracking, observe mode, block logs, and web bridge.
+commands:
+  observe:
+    description: Observe a target player location updates.
+    usage: /observe <player|off>
+    permission: observer.observe
+  blocklog:
+    description: Show recent block placement and break logs.
+    usage: /blocklog [count] [player]
+    permission: observer.logs.view
+  nearblock:
+    description: Check configured nearby blocks or reload config.
+    usage: /nearblock <check|reload> [player]
+    permission: observer.nearblock.check
+permissions:
+  observer.observe:
+    description: Allows using /observe command.
+    default: op
+  observer.logs.view:
+    description: Allows viewing recent block logs.
+    default: op
+  observer.nearblock.check:
+    description: Allows checking for configured nearby blocks.
+    default: op
+  observer.nearblock.reload:
+    description: Allows reloading nearby block config.
+    default: op
