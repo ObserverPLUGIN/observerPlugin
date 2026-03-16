@@ -7,6 +7,10 @@ build/
 .idea/
 .vscode/
 *.iml
+.classpath
+.project
+.settings/
+out/
 
 # OS
 .DS_Store
@@ -15,6 +19,7 @@ Thumbs.db
 # Local archives and binaries
 *.zip
 *.log
+*.tmp
 
 # Java
 hs_err_pid*
