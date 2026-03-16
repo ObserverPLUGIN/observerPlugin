@@ -2,6 +2,7 @@ package com.yangtheory.observer.listener;
 
 import com.yangtheory.observer.nearby.NearbyBlockService;
 import com.yangtheory.observer.observer.ObserverManager;
+import com.yangtheory.observer.snapshot.NearbySnapshotService;
 import com.yangtheory.observer.tracker.PlayerTrackerService;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -16,15 +17,18 @@ public class PlayerQuitCleanupListener implements Listener {
     private final ObserverManager observerManager;
     private final PlayerTrackerService trackerService;
     private final NearbyBlockService nearbyBlockService;
+    private final NearbySnapshotService nearbySnapshotService;
 
     public PlayerQuitCleanupListener(
             ObserverManager observerManager,
             PlayerTrackerService trackerService,
-            NearbyBlockService nearbyBlockService
+            NearbyBlockService nearbyBlockService,
+            NearbySnapshotService nearbySnapshotService
     ) {
         this.observerManager = observerManager;
         this.trackerService = trackerService;
         this.nearbyBlockService = nearbyBlockService;
+        this.nearbySnapshotService = nearbySnapshotService;
     }
 
     @EventHandler
@@ -34,6 +38,7 @@ public class PlayerQuitCleanupListener implements Listener {
 
         trackerService.removePlayer(quittingPlayerId);
         nearbyBlockService.clearPlayer(quittingPlayerId);
+        nearbySnapshotService.clearPlayer(quittingPlayerId);
         observerManager.stopObserving(quittingPlayerId);
 
         List<UUID> affectedAdmins = observerManager.stopObservingTarget(quittingPlayerId);
