@@ -19,5 +19,10 @@ logs:
 
 web:
   enabled: false
-  endpoint: "http://localhost:8080/logs"
+  server-name: "local-server"
+  endpoint: "http://localhost:8080/api/logs"
+  snapshot-enabled: false
+  snapshot-endpoint: "http://localhost:8080/api/player-snapshots"
+  snapshot-interval-ms: 1000
+  snapshot-radius: 5
   timeout-ms: 2000
